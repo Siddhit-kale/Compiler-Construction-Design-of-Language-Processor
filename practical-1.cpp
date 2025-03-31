@@ -2,17 +2,20 @@
 #include <regex>
 using namespace std;
 
-int main() {
-    string text;
-    cout << "Enter a string: ";
-    cin >> text;
-
+bool isValidString(const string &input) {
     regex pattern("^a*bb$");
+    return regex_match(input, pattern);
+}
 
-    if (regex_match(text, pattern)) {
-        cout << "Valid String" << endl;
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    if (isValidString(input)) {
+        cout << "Valid string" << endl;
     } else {
-        cout << "Invalid String" << endl;
+        cout << "Invalid string" << endl;
     }
 
     return 0;
